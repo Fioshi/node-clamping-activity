@@ -13,6 +13,14 @@ router.get('/', async (req, res) => {
     res.json(registros);
 })
 
+router.post('/submit', (req, res) => {
+    const ticket = { identificador, titulo, telefone } = req.body;
+
+    repository.create(ticket)
+    
+    res.status(201).send('Created ticket');
+});
+
 router.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;  
